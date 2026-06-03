@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sai Sreeram Nanapu AI portfolio icon">
+  <rect width="64" height="64" rx="8" fill="#050816"/>
+  <path d="M12 42L25 16H33L46 42H38L35.5 36H23.2L20.7 42H12Z" fill="url(#g)"/>
+  <path d="M25.6 30.5H33.2L29.4 21.7L25.6 30.5Z" fill="#050816"/>
+  <path d="M45 18H52V42H45V18Z" fill="#34d399"/>
+  <circle cx="51" cy="15" r="3" fill="#22d3ee"/>
+  <defs>
+    <linearGradient id="g" x1="12" x2="46" y1="16" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.55" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+</svg>
