@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteTitle = "Sai Sreeram Nanapu | SAP BTP Developer & Full-Stack Engineer";
+const siteTitle = "Sai Sreeram Nanapu | Software Engineer & Data Scientist";
 const siteDescription =
-  "Portfolio of Sai Sreeram Nanapu, an SAP BTP-focused Software Engineer building enterprise applications with SAPUI5/Fiori, JavaScript, TypeScript, Node.js, OData, cloud services, and AI/ML workflows.";
+  "Portfolio of Sai Sreeram Nanapu, a software engineer and data scientist building full-stack applications, AI/ML workflows, cloud systems, and enterprise software.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sai-sreeram-nanapu.vercel.app"),
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description:
-      "SAP BTP, SAPUI5/Fiori, full-stack engineering, cloud, and AI/ML work by Sai Sreeram Nanapu.",
+      "Full-stack engineering, data and AI, cloud, and enterprise work by Sai Sreeram Nanapu.",
     type: "website",
     locale: "en_US",
     url: "https://sai-sreeram-nanapu.vercel.app",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Sai Sreeram Nanapu Agentic AI Engineer portfolio"
+        alt: "Sai Sreeram Nanapu software engineering portfolio"
       }
     ]
   },
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070a08",
-  colorScheme: "dark",
+  themeColor: "#0d1a23",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1
 };
