@@ -14,14 +14,12 @@ import {
   CircleDot,
   Cloud,
   Code2,
-  Database,
   FlaskConical,
   GitBranch,
   GraduationCap,
   Home,
   Layers3,
   Network,
-  ListChecks,
   Mail,
   MapPin,
   PenLine,
@@ -52,71 +50,20 @@ const capabilities = [
 ];
 
 const balancedSkills = [skillCategories[1], skillCategories[3], skillCategories[2], skillCategories[0]];
-const balancedProjects = [projects[1], projects[3], projects[0], projects[2]];
+const balancedProjects = [projects[0], projects[1], projects[3], projects[2]];
 
 function ProjectVisual({ type }: { type: (typeof balancedProjects)[number]["icon"] }) {
-  if (type === "workflow") {
-    return (
-      <div className="project-visual workflow-visual" aria-label="Email-to-timeline workflow diagram">
-        <div className="visual-toolbar"><span /><span /><span /><b>workflow.pipeline</b></div>
-        <div className="flow-row">
-          <div className="flow-node"><Mail size={19} /><span>Gmail API</span><small>OAuth 2.0</small></div>
-          <ArrowRight size={18} className="flow-arrow" />
-          <div className="flow-node active"><BrainCircuit size={19} /><span>LLM parser</span><small>Structured data</small></div>
-          <ArrowRight size={18} className="flow-arrow" />
-          <div className="flow-node"><ListChecks size={19} /><span>Timeline</span><small>Status tracking</small></div>
-        </div>
-        <div className="visual-status"><Check size={14} /> Latest application signal parsed successfully</div>
-      </div>
-    );
-  }
+  const screenshot = type === "sap"
+    ? { src: "/projects/northwind-explorer.png", alt: "SAPUI5 Northwind Business Explorer application" }
+    : type === "bio"
+      ? { src: "/projects/blood-cancer-agent.png", alt: "Blood Cancer Protein Sequence AI Agent application" }
+      : null;
 
-  if (type === "prediction") {
-    return (
-      <div className="project-visual prediction-visual" aria-label="Burnout risk analytics interface">
-        <div className="visual-toolbar"><span /><span /><span /><b>risk.analytics</b></div>
-        <div className="metric-row">
-          <div><small>Model inputs</small><strong>12</strong></div>
-          <div><small>Access</small><strong>RBAC</strong></div>
-          <div><small>Cache</small><strong>Redis</strong></div>
-        </div>
-        <div className="chart-bars" aria-hidden="true">
-          {[32, 48, 41, 64, 53, 78, 69, 86, 74, 92].map((height, index) => (
-            <span key={index} style={{ height: `${height}%` }} />
-          ))}
-        </div>
-        <div className="model-tags"><span>Random Forest</span><span>BERT</span><span>LSTM</span></div>
-      </div>
-    );
-  }
-
-  if (type === "sap") {
-    return (
-      <div className="project-visual sap-visual" aria-label="Northwind data explorer interface">
-        <div className="visual-toolbar"><span /><span /><span /><b>northwind.explorer</b></div>
-        <div className="sap-layout">
-          <div className="sap-nav"><strong>NW</strong><span className="is-active">Home</span><span>Products</span><span>Orders</span><span>Analytics</span></div>
-          <div className="sap-content">
-            <div className="metric-row">
-              <div><small>Datasets</small><strong>26</strong></div>
-              <div><small>Protocol</small><strong>OData V2</strong></div>
-              <div><small>Views</small><strong>Responsive</strong></div>
-            </div>
-            <div className="line-chart"><svg viewBox="0 0 420 100" role="img" aria-label="Illustrative application usage trend"><path d="M4 85 L54 60 L104 70 L154 37 L204 58 L254 26 L304 47 L354 18 L416 31" /></svg></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!screenshot) return null;
 
   return (
-    <div className="project-visual bio-visual" aria-label="Protein sequence classification pipeline">
-      <div className="visual-toolbar"><span /><span /><span /><b>sequence.classifier</b></div>
-      <div className="sequence-strip">M A D E K L P R V T A C G T R S N V Q L</div>
-      <div className="bio-flow">
-        <span><Database size={16} />NCBI data</span><ArrowRight size={15} /><span><FlaskConical size={16} />K-mer features</span><ArrowRight size={15} /><span><BarChart3 size={16} />Model comparison</span>
-      </div>
-      <div className="model-tags"><span>Logistic regression</span><span>SVM</span><span>Naive Bayes</span><span>K-means</span></div>
+    <div className="project-visual screenshot-visual">
+      <Image src={screenshot.src} alt={screenshot.alt} width={3024} height={1964} sizes="(max-width: 700px) 88vw, 38vw" className="project-screenshot-image" />
     </div>
   );
 }
@@ -124,6 +71,7 @@ function ProjectVisual({ type }: { type: (typeof balancedProjects)[number]["icon
 export function PortfolioWorkspace() {
   const [activeProject, setActiveProject] = useState(0);
   const project = balancedProjects[activeProject];
+  const hasProjectImage = project.icon === "sap" || project.icon === "bio";
   const ProjectIcon = { workflow: Workflow, prediction: BarChart3, sap: Blocks, bio: FlaskConical }[project.icon];
 
   return (
@@ -211,7 +159,7 @@ export function PortfolioWorkspace() {
               ))}
             </div>
 
-            <article className="project-dossier" role="tabpanel">
+            <article className={`project-dossier ${hasProjectImage ? "with-image" : "text-only"}`} role="tabpanel">
               <div className="project-copy">
                 <div className="project-label"><ProjectIcon size={16} /> Featured project</div>
                 <h3>{project.title}</h3><p>{project.description}</p>
@@ -219,7 +167,7 @@ export function PortfolioWorkspace() {
                 <div className="project-tech">{project.tech.slice(0, 6).map((tech) => <span key={tech}>{tech}</span>)}</div>
                 <div className="project-actions">{project.actions.map((action) => <a key={action.label} href={action.href} target="_blank" rel="noreferrer">{action.label}<ArrowUpRight size={14} /></a>)}</div>
               </div>
-              <ProjectVisual type={project.icon} />
+              {hasProjectImage ? <ProjectVisual type={project.icon} /> : null}
             </article>
           </section>
         </div>
