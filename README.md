@@ -1,6 +1,6 @@
-# Sai Sreeram Nanapu | Agentic AI Portfolio
+# Sai Sreeram Nanapu | SAP BTP & Full-Stack Portfolio
 
-A modern AI engineering portfolio for Sai Sreeram Nanapu, focused on Agentic AI, Generative AI, machine learning, cloud-native backends, APIs, automation workflows, and full-stack AI applications.
+A compact engineering portfolio for Sai Sreeram Nanapu, focused on SAP BTP, SAPUI5/Fiori, full-stack development, cloud platforms, data applications, and applied AI/ML.
 
 ## Tech Stack
 

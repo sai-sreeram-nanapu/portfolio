@@ -1,115 +1,102 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Calendar, ChevronDown, GraduationCap, MapPin, Star } from "lucide-react";
-import { useState } from "react";
+import { Award, Check, GraduationCap, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
-import { education, type EducationItem } from "@/data/education";
-
-type CourseworkPanelProps = {
-  item: EducationItem;
-};
-
-function CourseworkPanel({ item }: CourseworkPanelProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  if (!item.coursework?.length) {
-    return null;
-  }
-
-  const hiddenCount = isOpen ? 0 : Math.max(item.coursework.length - 8, 0);
-
-  return (
-    <div className="relative z-10 mt-6 border-t border-white/10 pt-5">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-sm font-semibold text-white">
-          <BookOpen size={16} className="text-cyan-200" aria-hidden="true" />
-          {item.courseworkLabel ?? "Coursework"}
-        </div>
-        <button
-          type="button"
-          className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/7 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-cyan-200/34 hover:bg-white/10"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          {isOpen ? "Show Less" : hiddenCount > 0 ? `Show All ${item.coursework.length}` : "Show Coursework"}
-          <ChevronDown className={isOpen ? "rotate-180 transition" : "transition"} size={14} aria-hidden="true" />
-        </button>
-      </div>
-      <div
-        className={
-          isOpen
-            ? "grid gap-2 sm:grid-cols-2"
-            : "relative grid max-h-36 overflow-hidden gap-2 sm:grid-cols-2"
-        }
-      >
-        {item.coursework.map((course) => (
-          <span
-            key={course}
-            className="rounded-md border border-white/10 bg-white/6 px-2.5 py-1.5 text-xs font-medium leading-5 text-slate-300"
-          >
-            {course}
-          </span>
-        ))}
-        {!isOpen && hiddenCount > 0 ? (
-          <span className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-slate-950/95 to-transparent" />
-        ) : null}
-      </div>
-      {hiddenCount > 0 ? <p className="mt-3 text-xs text-slate-500">+ {hiddenCount} more transcript courses</p> : null}
-    </div>
-  );
-}
+import { additionalLearning, education, sapLearning } from "@/data/education";
 
 export function Education() {
   return (
-    <section id="education" className="scroll-mt-24 py-20 sm:py-24">
+    <section id="education" className="scroll-mt-20 py-16 sm:py-20">
       <div className="section-shell">
         <SectionHeading
-          eyebrow="// education"
-          title="Academic Foundation"
-          description="Formal computer science and information technology training backing applied AI engineering, data systems, security, and cloud-native software."
+          eyebrow="04 / Education & learning"
+          title="Strong fundamentals, continuously extended."
+          description="Graduate training in information technology, a computer science foundation, and focused learning across SAP BTP, cloud, and applied AI."
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {education.map((item, index) => (
-            <motion.article
-              key={item.degree}
-              className="futuristic-card rounded-lg p-6"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-120px" }}
-              transition={{ duration: 0.55, delay: index * 0.08 }}
-            >
-              <div className="relative z-10 mb-5 flex items-start gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-violet-300/24 bg-violet-300/10 text-violet-100">
-                  <GraduationCap size={24} aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="text-xl font-semibold leading-7 text-white">{item.degree}</h3>
-                  <p className="mt-2 text-base font-medium text-cyan-100">{item.university}</p>
+        <div className="mt-8 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid gap-4">
+            {education.map((item, index) => (
+              <motion.article
+                key={item.degree}
+                className="surface-card rounded-[9px] p-5"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-70px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <div className="flex gap-3">
+                  <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-[6px] border border-emerald-300/20 bg-emerald-300/[0.07] text-emerald-300">
+                    <GraduationCap size={17} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-base font-semibold leading-6 text-white">{item.degree}</h3>
+                    <p className="mt-1 text-sm font-medium text-emerald-200">{item.university}</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="relative z-10 grid gap-3 text-sm text-slate-300 sm:grid-cols-2">
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-cyan-200" aria-hidden="true" />
-                  {item.location}
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/[0.08] pt-4 text-xs text-slate-400">
+                  <span>{item.duration}</span>
+                  <span className="inline-flex items-center gap-1.5"><MapPin size={12} aria-hidden="true" />{item.location}</span>
+                  {item.gpa ? <span>GPA {item.gpa}</span> : null}
+                  {item.award ? <span className="font-semibold text-emerald-200">{item.award}</span> : null}
                 </div>
-                <div className="flex items-center gap-2">
-                  <Calendar size={16} className="text-cyan-200" aria-hidden="true" />
-                  {item.duration}
-                </div>
-                {item.gpa ? (
-                  <div className="flex items-center gap-2">
-                    <Star size={16} className="text-amber-200" aria-hidden="true" />
-                    GPA: {item.gpa}
+
+                {item.coursework ? (
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {item.coursework.map((course) => (
+                      <span key={course} className="chip">{course}</span>
+                    ))}
                   </div>
                 ) : null}
+              </motion.article>
+            ))}
+          </div>
+
+          <motion.aside
+            className="accent-panel rounded-[9px] p-5 sm:p-6"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-70px" }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+          >
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 place-items-center rounded-[6px] border border-emerald-300/20 bg-emerald-300/[0.07] text-emerald-300">
+                <Award size={17} aria-hidden="true" />
+              </span>
+              <div>
+                <p className="mini-label">Professional learning</p>
+                <h3 className="mt-1 text-base font-semibold text-white">SAP and applied AI</h3>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-slate-500">SAP Learning</p>
+                <ul className="mt-3 grid gap-2">
+                  {sapLearning.map((item) => (
+                    <li key={item} className="flex gap-2 text-xs leading-5 text-slate-300">
+                      <Check className="mt-0.5 shrink-0 text-emerald-300" size={13} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <CourseworkPanel item={item} />
-            </motion.article>
-          ))}
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-slate-500">Additional</p>
+                <ul className="mt-3 grid gap-2">
+                  {additionalLearning.map((item) => (
+                    <li key={item} className="flex gap-2 text-xs leading-5 text-slate-300">
+                      <Check className="mt-0.5 shrink-0 text-emerald-300" size={13} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.aside>
         </div>
       </div>
     </section>

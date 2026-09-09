@@ -1,104 +1,77 @@
-"use client";
+import { ArrowUpRight, GitBranch, Mail, MapPin, Network, Phone } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { ExternalLink, GitBranch, Mail, MapPin, Network, Phone, Send } from "lucide-react";
-import { SectionHeading } from "@/components/SectionHeading";
-
-const contactLinks = [
-  { label: "Email Me", href: "mailto:nanapusaisreeram2002@gmail.com", icon: Mail },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sai-sreeram-nanapu-100aaa284",
-    icon: Network
-  },
-  { label: "GitHub", href: "https://github.com/sai-sreeram-nanapu", icon: GitBranch },
-  {
-    label: "View Live AI Project",
-    href: "https://blood-cancer-protein-agent.onrender.com/",
-    icon: ExternalLink
-  }
-];
-
-const contactDetails = [
-  { label: "Email", value: "nanapusaisreeram2002@gmail.com", icon: Mail },
-  { label: "Phone", value: "+1 (928) 255-7249", icon: Phone },
-  { label: "Location", value: "United States", icon: MapPin }
+const details = [
+  { label: "Email", value: "nanapusaisreeram2002@gmail.com", href: "mailto:nanapusaisreeram2002@gmail.com", icon: Mail },
+  { label: "Phone", value: "+1 (928) 255-7249", href: "tel:+19282557249", icon: Phone },
+  { label: "Location", value: "New Jersey, USA", icon: MapPin }
 ];
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 py-20 sm:py-24">
+    <section id="contact" className="scroll-mt-20 pb-16 pt-6 sm:pb-20 sm:pt-8">
       <div className="section-shell">
-        <div className="rounded-lg gradient-border">
-          <div className="futuristic-card rounded-lg p-6 sm:p-8 lg:p-10">
-            <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
-              <div>
-                <SectionHeading
-                  eyebrow="// contact"
-                  title="Let's Build Intelligent Systems"
-                  description="I'm open to AI engineering, software engineering, cloud, machine learning, and full-stack AI opportunities."
-                />
-
-                <motion.div
-                  className="mt-8 flex flex-wrap gap-3"
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
+        <div className="accent-panel relative overflow-hidden rounded-[10px] p-6 sm:p-8">
+          <div className="site-grid absolute inset-0 opacity-40" aria-hidden="true" />
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-end">
+            <div>
+              <p className="mini-label">Available for new opportunities</p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.045em] text-white sm:text-[2.6rem]">
+                Let&apos;s build dependable enterprise software.
+              </h2>
+              <p className="mt-4 max-w-xl text-[15px] leading-7 text-slate-400">
+                Open to conversations about SAP BTP, SAPUI5/Fiori, full-stack engineering, cloud applications, and applied AI.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="mailto:nanapusaisreeram2002@gmail.com" className="primary-button">
+                  <Mail size={15} aria-hidden="true" />
+                  Email me
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sai-sreeram-nanapu-100aaa284"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="secondary-button"
                 >
-                  {contactLinks.map((link) => {
-                    const Icon = link.icon;
-                    const isExternal = link.href.startsWith("http");
-
-                    return (
-                      <a
-                        key={link.label}
-                        href={link.href}
-                        target={isExternal ? "_blank" : undefined}
-                        rel={isExternal ? "noreferrer" : undefined}
-                        className="inline-flex items-center gap-2 rounded-md border border-cyan-300/30 bg-cyan-300/10 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-200/60 hover:bg-cyan-300/16"
-                      >
-                        <Icon size={16} aria-hidden="true" />
-                        {link.label}
-                      </a>
-                    );
-                  })}
-                </motion.div>
+                  <Network size={15} aria-hidden="true" />
+                  LinkedIn
+                  <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://github.com/sai-sreeram-nanapu"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="secondary-button"
+                >
+                  <GitBranch size={15} aria-hidden="true" />
+                  GitHub
+                  <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
               </div>
+            </div>
 
-              <motion.div
-                className="terminal-window rounded-lg p-5"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.08 }}
-              >
-                <div className="mb-5 flex items-center gap-2">
-                  <span className="terminal-dot bg-rose-400" />
-                  <span className="terminal-dot bg-amber-300" />
-                  <span className="terminal-dot bg-emerald-300" />
-                  <span className="ml-2 font-mono text-xs text-slate-400">connect.sh</span>
-                </div>
-                <div className="space-y-4">
-                  {contactDetails.map((detail) => {
-                    const Icon = detail.icon;
+            <div className="grid gap-px overflow-hidden rounded-[8px] border border-white/[0.09] bg-white/[0.09]">
+              {details.map((detail) => {
+                const Icon = detail.icon;
+                const content = (
+                  <>
+                    <Icon size={15} className="shrink-0 text-emerald-300" aria-hidden="true" />
+                    <div className="min-w-0">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">{detail.label}</p>
+                      <p className="mt-0.5 break-words text-xs font-medium text-slate-200">{detail.value}</p>
+                    </div>
+                  </>
+                );
 
-                    return (
-                      <div key={detail.label} className="flex gap-3 rounded-lg border border-white/10 bg-white/6 p-4">
-                        <Icon className="mt-0.5 shrink-0 text-cyan-200" size={18} aria-hidden="true" />
-                        <div>
-                          <p className="text-xs font-semibold text-slate-500">{detail.label}</p>
-                          <p className="mt-1 break-words text-sm font-medium text-slate-200">{detail.value}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-5 flex items-center gap-2 rounded-lg border border-emerald-300/18 bg-emerald-300/8 p-4 text-sm text-emerald-100">
-                  <Send size={16} aria-hidden="true" />
-                  Ready for technical conversations, product builds, and AI engineering roles.
-                </div>
-              </motion.div>
+                return detail.href ? (
+                  <a key={detail.label} href={detail.href} className="flex items-center gap-3 bg-[#0b110d] px-4 py-3.5 transition hover:bg-[#101813]">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={detail.label} className="flex items-center gap-3 bg-[#0b110d] px-4 py-3.5">
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

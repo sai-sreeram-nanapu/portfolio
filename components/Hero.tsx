@@ -1,123 +1,138 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, GitBranch, Network, Rocket, Sparkles } from "lucide-react";
-import { FloatingBadge } from "@/components/FloatingBadge";
+import { ArrowDown, ArrowUpRight, Braces, Cloud, Database, Layers3 } from "lucide-react";
 import { ProfileCard } from "@/components/ProfileCard";
 
-const floatingBadges = ["LLMs", "RAG", "ML", "APIs", "Cloud", "Automation", "Agents"];
-
-const heroLinks = [
-  { label: "View Projects", href: "#projects", variant: "primary" },
-  { label: "Contact Me", href: "#contact", variant: "secondary" },
-  { label: "GitHub", href: "https://github.com/sai-sreeram-nanapu", variant: "secondary" },
+const deliveryStack = [
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sai-sreeram-nanapu-100aaa284",
-    variant: "secondary"
+    index: "01",
+    label: "Interface",
+    value: "SAPUI5 / Fiori",
+    detail: "Responsive enterprise experiences",
+    icon: Layers3
   },
   {
-    label: "Live AI Project",
-    href: "https://blood-cancer-protein-agent.onrender.com/",
-    variant: "accent"
+    index: "02",
+    label: "Application",
+    value: "CAP / Node.js",
+    detail: "Services and business logic",
+    icon: Braces
+  },
+  {
+    index: "03",
+    label: "Integration",
+    value: "OData / REST",
+    detail: "Clean data and API contracts",
+    icon: Database
+  },
+  {
+    index: "04",
+    label: "Platform",
+    value: "BTP / Cloud Foundry",
+    detail: "Cloud-ready delivery and extensibility",
+    icon: Cloud
   }
 ];
 
 export function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden pt-16">
-      <div className="neural-grid absolute inset-0 -z-20 opacity-65 [animation:grid-pan_18s_linear_infinite]" />
-      <div className="absolute inset-x-0 top-16 -z-10 h-px scanline [animation:pulse-line_5s_ease-in-out_infinite]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,7,18,0.1),rgba(3,7,18,0.68)_72%,#030712)]" />
+    <section id="home" className="relative overflow-hidden pt-14">
+      <div className="site-grid absolute inset-0 -z-10 opacity-70" aria-hidden="true" />
+      <div className="absolute left-1/2 top-[-220px] -z-10 h-[560px] w-[760px] -translate-x-1/2 rounded-full bg-emerald-400/[0.08] blur-[110px]" aria-hidden="true" />
 
-      <div className="section-shell grid min-h-[92vh] items-center gap-12 py-14 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
-        <div className="max-w-4xl">
-          <motion.p
-            className="mb-4 flex w-fit items-center gap-2 text-lg font-semibold text-cyan-200"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-          >
-            <Sparkles size={18} aria-hidden="true" />
-            Sai Sreeram Nanapu
-          </motion.p>
+      <div className="section-shell py-16 sm:py-20">
+        <motion.div
+          className="mx-auto max-w-4xl text-center"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="mini-label">Enterprise application engineering</span>
+            <span className="h-1 w-1 rounded-full bg-slate-600" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2 text-xs font-medium text-slate-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(102,230,181,0.8)]" />
+              Open to SAP BTP and full-stack roles
+            </span>
+          </div>
+          <h1 className="mt-6 text-[2.4rem] font-semibold leading-[1.06] tracking-[-0.055em] text-white sm:text-[2.85rem] lg:text-[3.3rem]">
+            SAP BTP engineering for modern enterprise applications.
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400">
+            I design responsive SAPUI5/Fiori experiences, build full-stack services, connect business data through OData and REST, and bring cloud and AI capabilities into practical software.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <a href="#projects" className="primary-button">
+              Explore selected work
+              <ArrowDown size={15} aria-hidden="true" />
+            </a>
+            <a href="mailto:nanapusaisreeram2002@gmail.com" className="secondary-button">
+              Start a conversation
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </div>
+        </motion.div>
 
-          <motion.div
-            className="mb-6 flex w-fit max-w-full items-center gap-2 rounded-md border border-emerald-300/28 bg-emerald-300/10 px-3 py-2 text-sm font-medium text-emerald-100 shadow-[0_0_30px_rgba(52,211,153,0.08)] backdrop-blur-md sm:text-base"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-          >
-            <Rocket className="shrink-0" size={16} aria-hidden="true" />
-            <span>Available for AI / Software Engineering / Full-Stack AI opportunities</span>
-          </motion.div>
+        <motion.div
+          className="accent-panel mt-10 overflow-hidden rounded-[10px]"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.12 }}
+        >
+          <div className="flex items-center justify-between border-b border-white/[0.09] bg-[#090e0b] px-4 py-3">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-300" />
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.11em] text-slate-400">sai.engineering / delivery-map</span>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">v2026.09</span>
+          </div>
 
-          <motion.h1
-            className="max-w-5xl text-4xl font-semibold leading-[1.08] text-gradient sm:text-5xl lg:text-6xl"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.1 }}
-          >
-            Building Agentic AI Systems and Full-Stack AI Applications
-          </motion.h1>
+          <div className="grid lg:grid-cols-[220px_1fr]">
+            <ProfileCard />
 
-          <motion.p
-            className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.18 }}
-          >
-            I design and build intelligent software systems using LLMs, machine learning,
-            cloud-native backends, APIs, and automation workflows.
-          </motion.p>
+            <div className="p-5 sm:p-6">
+              <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+                <div>
+                  <p className="mini-label !text-[10px]">Delivery stack</p>
+                  <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-white">From interface to platform.</h2>
+                </div>
+                <p className="max-w-xs text-xs leading-5 text-slate-500">A focused workflow for building clean, extensible, data-driven applications.</p>
+              </div>
 
-          <motion.div
-            className="mt-8 flex flex-wrap gap-3"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.26 }}
-          >
-            {heroLinks.map((link) => {
-              const isExternal = link.href.startsWith("http");
-              const Icon = link.label === "GitHub" ? GitBranch : link.label === "LinkedIn" ? Network : ArrowRight;
+              <div className="mt-5 grid gap-px overflow-hidden rounded-[8px] border border-white/[0.09] bg-white/[0.09] sm:grid-cols-2 xl:grid-cols-4">
+                {deliveryStack.map((stage) => {
+                  const Icon = stage.icon;
 
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noreferrer" : undefined}
-                  className={
-                    link.variant === "primary"
-                      ? "inline-flex items-center gap-2 rounded-md bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_34px_rgba(34,211,238,0.3)] transition hover:-translate-y-0.5 hover:bg-cyan-200"
-                      : link.variant === "accent"
-                        ? "inline-flex items-center gap-2 rounded-md border border-violet-300/42 bg-violet-300/14 px-4 py-3 text-sm font-semibold text-violet-100 transition hover:-translate-y-0.5 hover:border-violet-200/70 hover:bg-violet-300/20"
-                        : "inline-flex items-center gap-2 rounded-md border border-white/12 bg-white/7 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-200/34 hover:bg-white/10"
-                  }
-                >
-                  {link.label}
-                  <Icon size={16} aria-hidden="true" />
-                </a>
-              );
-            })}
-          </motion.div>
+                  return (
+                    <div key={stage.label} className="bg-[#0d1510] p-4">
+                      <div className="flex items-center justify-between">
+                        <Icon size={16} className="text-emerald-300" aria-hidden="true" />
+                        <span className="font-mono text-[10px] text-slate-600">{stage.index}</span>
+                      </div>
+                      <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-500">{stage.label}</p>
+                      <p className="mt-1 text-sm font-semibold text-white">{stage.value}</p>
+                      <p className="mt-2 text-xs leading-5 text-slate-500">{stage.detail}</p>
+                    </div>
+                  );
+                })}
+              </div>
 
-          <motion.div
-            className="mt-9 flex flex-wrap gap-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.32 }}
-          >
-            {floatingBadges.map((badge, index) => (
-              <FloatingBadge key={badge} label={badge} index={index} />
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -inset-8 -z-10 rounded-lg border border-cyan-300/10 bg-slate-950/20 shadow-[0_0_120px_rgba(34,211,238,0.12)]" aria-hidden="true" />
-          <ProfileCard />
-        </div>
+              <div className="mt-4 grid gap-px overflow-hidden rounded-[8px] border border-white/[0.09] bg-white/[0.09] sm:grid-cols-3">
+                {[
+                  ["Current", "Associate Data Scientist"],
+                  ["Graduate record", "MS IT · 4.0 GPA · Distinction"],
+                  ["Latest build", "26-dataset SAPUI5 explorer"]
+                ].map(([label, value]) => (
+                  <div key={label} className="bg-[#0a100c] px-4 py-3.5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">{label}</p>
+                    <p className="mt-1.5 text-xs font-semibold text-slate-200">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

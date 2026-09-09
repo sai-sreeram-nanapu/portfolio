@@ -1,119 +1,95 @@
-export type ProjectAction =
-  | {
-      label: "View Details";
-      type: "detail";
-    }
-  | {
-      label: string;
-      type: "external";
-      href: string;
-    };
-
 export type Project = {
   title: string;
   description: string;
-  details: string;
   highlights: string[];
   tech: string[];
-  icon: "bio" | "workflow" | "prediction";
+  icon: "sap" | "workflow" | "bio" | "prediction";
   metric: string;
-  actions: ProjectAction[];
+  actions: {
+    label: string;
+    href: string;
+  }[];
 };
 
 export const projects: Project[] = [
   {
-    title: "Blood Cancer Protein Sequence AI Agent",
+    title: "SAPUI5 Northwind Business Explorer",
     description:
-      "An AI-powered bioinformatics application that predicts whether blood data is cancerous or non-cancerous by analyzing protein sequence patterns.",
-    details:
-      "This project turns protein sequence patterns into a practical classification workflow. It combines BioPython preprocessing, K-mer feature extraction, and multiple ML models to compare performance before deploying the strongest Logistic Regression result as a live AI web application.",
+      "A responsive, metadata-driven SAPUI5 application providing read-only access to all 26 datasets in the Northwind OData V2 service.",
     highlights: [
-      "Protein sequence analysis",
-      "BioPython-based preprocessing",
-      "K-mer analysis",
-      "Logistic Regression, SVM, Naive Bayes, and K-Means",
-      "Achieved 75% accuracy with Logistic Regression",
-      "Deployed live as an AI web application"
+      "Reusable launchpad, list, and detail pages",
+      "Search, filtering, sorting, pagination, and favourites",
+      "Composite-key routing and relationship-based navigation",
+      "SAP Horizon-inspired responsive interface and error states"
     ],
-    tech: ["Python", "Machine Learning", "BioPython", "Scikit-learn", "Render", "AI Agent"],
-    icon: "bio",
-    metric: "75% accuracy",
+    tech: ["SAPUI5", "JavaScript", "XML Views", "OData V2", "UI5 Tooling"],
+    icon: "sap",
+    metric: "26 datasets",
     actions: [
       {
-        label: "Live Demo",
-        type: "external",
+        label: "View repository",
+        href: "https://github.com/sai-sreeram-nanapu/sapui5-northwind-explorer"
+      }
+    ]
+  },
+  {
+    title: "AI-Powered Workflow & Job Application Tracker",
+    description:
+      "A full-stack application that securely processes job-related emails and converts them into structured application timelines.",
+    highlights: [
+      "Gmail API integration with OAuth 2.0",
+      "LLM-assisted extraction of company, role, status, and timeline data",
+      "React and TypeScript interface backed by Node.js and MongoDB Atlas"
+    ],
+    tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB Atlas", "Gmail API", "LLMs"],
+    icon: "workflow",
+    metric: "Workflow automation",
+    actions: [
+      {
+        label: "View GitHub",
+        href: "https://github.com/sai-sreeram-nanapu"
+      }
+    ]
+  },
+  {
+    title: "Blood Cancer Classification via Protein Sequences",
+    description:
+      "A protein-sequence classification workflow using K-mer feature extraction and multiple machine-learning models.",
+    highlights: [
+      "BioPython preprocessing with NCBI sequence data",
+      "Logistic regression, SVM, Naive Bayes, and K-means comparison",
+      "Deployed as an accessible web application on Render"
+    ],
+    tech: ["Python", "BioPython", "scikit-learn", "NCBI Data", "Machine Learning"],
+    icon: "bio",
+    metric: "Bioinformatics ML",
+    actions: [
+      {
+        label: "Live application",
         href: "https://blood-cancer-protein-agent.onrender.com/"
       },
       {
-        label: "GitHub",
-        type: "external",
-        href: "https://github.com/sai-sreeram-nanapu"
-      },
-      {
-        label: "View Details",
-        type: "detail"
-      }
-    ]
-  },
-  {
-    title: "AI-Powered Job Application Tracker",
-    description:
-      "An agentic workflow system that integrates Gmail API to automatically extract and manage job application data.",
-    details:
-      "This application is designed as an agentic career-operations system. It connects Gmail API signals, Google OAuth 2.0, LLM-assisted parsing, and a MongoDB Atlas backend so users can automatically organize roles, companies, statuses, and application history from real email workflows.",
-    highlights: [
-      "Gmail API integration",
-      "Google OAuth 2.0 authentication",
-      "LLM-assisted parsing",
-      "MongoDB Atlas backend",
-      "Real-time job application tracking",
-      "React and TypeScript frontend",
-      "Automated extraction of role, company, and application status"
-    ],
-    tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB Atlas", "Gmail API", "OAuth", "LLM Parsing"],
-    icon: "workflow",
-    metric: "Agentic workflow",
-    actions: [
-      {
-        label: "View Details",
-        type: "detail"
-      },
-      {
-        label: "GitHub",
-        type: "external",
+        label: "View GitHub",
         href: "https://github.com/sai-sreeram-nanapu"
       }
     ]
   },
   {
-    title: "Machine Learning Burnout Risk Prediction Platform",
+    title: "Machine Learning Burnout Risk Platform",
     description:
-      "An end-to-end ML platform that predicts employee burnout risk using behavioral, communication, and survey data.",
-    details:
-      "This platform combines predictive modeling and production web architecture. It uses classical ML and deep learning approaches, secure authentication, RBAC, Redis caching, and API performance goals to support a scalable burnout-risk prediction workflow.",
+      "A full-stack prediction and analytics platform combining secure application architecture with ML and NLP workflows.",
     highlights: [
-      "Random Forest, Logistic Regression, BERT, and LSTM models",
-      "87.3% accuracy",
-      "0.84 F1-score",
-      "JWT authentication",
-      "RBAC authorization",
-      "Redis caching",
-      "Supports 1000+ concurrent users",
-      "API response times under 200 ms",
-      "80%+ test coverage"
+      "REST APIs with JWT authentication and role-based access control",
+      "MongoDB persistence and Redis caching",
+      "Random Forest, logistic regression, BERT, and LSTM workflows"
     ],
-    tech: ["React", "Node.js", "Python", "MongoDB", "Redis", "JWT", "BERT", "LSTM", "Machine Learning"],
+    tech: ["React", "Node.js", "Python", "MongoDB", "Redis", "JWT", "BERT", "LSTM"],
     icon: "prediction",
-    metric: "1000+ users",
+    metric: "Full-stack ML",
     actions: [
       {
-        label: "GitHub",
-        type: "external",
+        label: "View GitHub",
         href: "https://github.com/sai-sreeram-nanapu"
-      },
-      {
-        label: "View Details",
-        type: "detail"
       }
     ]
   }

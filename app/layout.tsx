@@ -1,26 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteTitle = "Sai Sreeram Nanapu | Agentic AI Engineer";
+const siteTitle = "Sai Sreeram Nanapu | SAP BTP Developer & Full-Stack Engineer";
 const siteDescription =
-  "Portfolio of Sai Sreeram Nanapu, an Agentic AI Engineer and Full-Stack AI Developer building intelligent systems with LLMs, machine learning, cloud-native backends, APIs, and automation workflows.";
+  "Portfolio of Sai Sreeram Nanapu, an SAP BTP-focused Software Engineer building enterprise applications with SAPUI5/Fiori, JavaScript, TypeScript, Node.js, OData, cloud services, and AI/ML workflows.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sai-sreeram-nanapu.vercel.app"),
   title: siteTitle,
   description: siteDescription,
   keywords: [
-    "Agentic AI",
-    "Generative AI",
-    "Full-Stack AI Developer",
-    "Machine Learning",
-    "LLMs",
-    "RAG",
-    "Cloud AI",
+    "SAP BTP",
+    "SAPUI5",
+    "SAP Fiori",
+    "CAP",
+    "Cloud Foundry",
+    "OData",
+    "Full-Stack Engineer",
     "Python",
     "React",
     "Node.js",
-    "AI Engineer",
+    "Generative AI",
     "Sai Sreeram Nanapu"
   ],
   authors: [{ name: "Sai Sreeram Nanapu" }],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description:
-      "Modern AI engineering portfolio featuring agentic AI systems, machine learning projects, cloud-native applications, and full-stack AI development.",
+      "SAP BTP, SAPUI5/Fiori, full-stack engineering, cloud, and AI/ML work by Sai Sreeram Nanapu.",
     type: "website",
     locale: "en_US",
     url: "https://sai-sreeram-nanapu.vercel.app",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050816",
+  themeColor: "#070a08",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1

@@ -1,94 +1,76 @@
 export type SkillCategory = {
   category: string;
-  icon: "brain" | "cloud" | "code" | "data" | "database";
+  index: string;
   skills: string[];
 };
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "AI & Agentic Systems",
-    icon: "brain",
+    category: "SAP Technologies",
+    index: "01",
     skills: [
-      "Agentic AI",
-      "Autonomous Workflows",
-      "Large Language Models",
-      "RAG",
-      "Prompt Engineering",
-      "Prompt Optimization",
-      "OpenAI API / LLM Integration",
-      "AI System Design",
-      "AI Orchestration",
-      "LLM-Assisted Parsing"
+      "SAP BTP",
+      "SAPUI5",
+      "Fiori",
+      "CAP with Node.js",
+      "Cloud Foundry",
+      "OData V2",
+      "XML Views",
+      "UI5 Tooling",
+      "ABAP Cloud fundamentals",
+      "SAP HANA Cloud fundamentals",
+      "Clean core",
+      "Side-by-side extensibility"
     ]
   },
   {
-    category: "Cloud & DevOps",
-    icon: "cloud",
+    category: "Programming & Web",
+    index: "02",
     skills: [
-      "AWS EC2",
-      "AWS S3",
-      "AWS VPC",
-      "AWS Lambda",
-      "IAM",
-      "CloudTrail",
-      "Redshift",
-      "Docker",
-      "Kubernetes",
-      "CI/CD Pipelines",
-      "Render",
-      "Vercel"
-    ]
-  },
-  {
-    category: "Programming & Development",
-    icon: "code",
-    skills: [
-      "Python",
-      "Java",
       "JavaScript",
       "TypeScript",
       "Node.js",
-      "React",
       "Express.js",
-      "Shell Scripting",
+      "React",
+      "Angular",
+      "Python",
+      "HTML",
+      "CSS",
       "REST APIs",
-      "Microservices",
-      "OOP",
-      "System Design"
+      "OAuth 2.0"
     ]
   },
   {
-    category: "Data Engineering & Systems",
-    icon: "data",
+    category: "Cloud, DevOps & Data",
+    index: "03",
     skills: [
-      "Apache Spark",
-      "Hadoop",
-      "Distributed Systems",
-      "ETL Pipelines",
-      "High-Throughput Data Pipelines",
-      "Stream Processing",
-      "Data Modeling",
-      "Real-Time Data Pipelines",
-      "Feature Engineering"
-    ]
-  },
-  {
-    category: "Databases & Tools",
-    icon: "database",
-    skills: [
-      "MySQL",
-      "PostgreSQL",
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "Git",
+      "GitHub",
+      "Postman",
       "MongoDB",
-      "MongoDB Atlas",
-      "Neo4j",
-      "Redis",
-      "Tableau",
-      "Power BI",
-      "Pandas",
-      "NumPy",
-      "Jupyter Notebook",
-      "Scikit-learn",
-      "BioPython"
+      "PostgreSQL",
+      "MySQL",
+      "Redis"
+    ]
+  },
+  {
+    category: "AI & Machine Learning",
+    index: "04",
+    skills: [
+      "Generative AI",
+      "LLMs",
+      "RAG",
+      "AI agents",
+      "Prompt engineering",
+      "scikit-learn",
+      "BioPython",
+      "BERT",
+      "LSTM"
     ]
   }
 ];

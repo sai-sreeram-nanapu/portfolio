@@ -4,7 +4,7 @@ export type EducationItem = {
   location: string;
   duration: string;
   gpa?: string;
-  courseworkLabel?: string;
+  award?: string;
   coursework?: string[];
 };
 
@@ -15,48 +15,38 @@ export const education: EducationItem[] = [
     location: "Flagstaff, AZ",
     duration: "08/2024 - 12/2025",
     gpa: "4.0 / 4.0",
-    courseworkLabel: "Coursework",
+    award: "With Distinction",
     coursework: [
-      "Information Security Concepts & Administration",
-      "Databases",
-      "Web Technology",
-      "Applied Business Intelligence",
-      "Networking and System Administration",
-      "Blockchain",
-      "Cybersecurity Policy & Ethics",
-      "Data Warehousing & Business Analytics",
       "Cloud Computing Foundations",
-      "Design Studio",
-      "Contemporary Developments in STEM"
+      "Databases",
+      "Information Security",
+      "Data Warehousing & Business Analytics",
+      "Cybersecurity Policy & Ethics",
+      "Applied Business Intelligence",
+      "Networking & System Administration"
     ]
   },
   {
-    degree: "Bachelor of Technology in Computer Science & Engineering",
+    degree: "Bachelor of Technology in Computer Science and Engineering",
     university: "Presidency University",
     location: "Bangalore, India",
-    duration: "2020 - 2024",
-    courseworkLabel: "Relevant Coursework",
-    coursework: [
-      "Data Structures",
-      "Design and Analysis of Algorithms",
-      "Programming in Java",
-      "Programming in Python and its Applications",
-      "Operating Systems",
-      "Database Management System",
-      "Cloud Computing",
-      "Cryptography and Network Security",
-      "Artificial Intelligence and Networks",
-      "Machine Learning",
-      "Big Data Technologies",
-      "Internet of Things",
-      "Object Oriented Analysis and Design",
-      "Web Technologies",
-      "Software Engineering",
-      "Computer Organization and Architecture",
-      "Data Communications and Computer Networks",
-      "Mobile Application Development",
-      "Digital Image Processing",
-      "Privacy and Security in Online Social Media"
-    ]
+    duration: "2020 - 2024"
   }
+];
+
+export const sapLearning = [
+  "Exploring SAP Business Technology Platform",
+  "Getting Started with SAP Cloud Application Programming Model",
+  "Developing UIs with SAPUI5",
+  "Building Side-by-Side Fiori Applications with SAP BTP",
+  "Setting up an ABAP Environment on SAP BTP",
+  "ABAP Platform Fundamentals",
+  "Basics of ABAP Programming on SAP BTP",
+  "Managing Clean Core for SAP S/4HANA Cloud"
+];
+
+export const additionalLearning = [
+  "Microsoft Azure AI Essentials Professional Certificate",
+  "Anthropic Claude 101 / Claude Code",
+  "IBM Building Smarter RAG Systems"
 ];
