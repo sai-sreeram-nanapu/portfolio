@@ -175,7 +175,7 @@ export function PortfolioWorkspace() {
         <section id="skills" className="section-block expertise-section">
           <div className="section-heading-row"><div><p className="section-kicker">Technical range</p><h2>A balanced engineering toolkit.</h2></div><p>Modern web foundations, applied AI, cloud delivery, data systems, and SAP technologies—used according to the problem, not as a one-size-fits-all stack.</p></div>
           <div className="skills-grid">
-            {balancedSkills.map((category) => <article key={category.category}><span>{category.index}</span><h3>{category.category}</h3><div>{category.skills.map((skill) => <small key={skill}>{skill}</small>)}</div></article>)}
+            {balancedSkills.map((category, index) => <article key={category.category}><span>{String(index + 1).padStart(2, "0")}</span><h3>{category.category}</h3><div>{category.skills.map((skill) => <small key={skill}>{skill}</small>)}</div></article>)}
           </div>
         </section>
 
